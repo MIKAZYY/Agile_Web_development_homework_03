@@ -176,7 +176,9 @@ class TexasHoldEmPoker:
             return 'Black wins'
         else:
             if white.score == 7 or white.score == 5:
-                return my_cmp_of_two(white.score[4][0], black.score[4][0])
+                if not white.cards[4][0] == black.cards[4][0] == chr(62):
+                    return my_cmp_of_two(white.cards[4][0], black.cards[4][0])
+                return my_cmp_of_all(white, black)
             elif white.score == 6:
                 return my_cmp_of_all(white, black)
             elif white.score == 4 or white == 2:
